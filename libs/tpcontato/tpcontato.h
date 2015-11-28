@@ -23,6 +23,16 @@ void tpc_generic_free(void **record);
 
 int tpc_cmp_name(char name[MAX_NOME], TpContato *contact);
 
+/**
+ * Generic item comparison for dllist
+ */
+int tpc_generic_cmp(const void *, const void *);
+
 void tpc_generic_print(void *item);
+
+/**
+ * Generic function to clone the referenced object
+ */
+void* tpc_generic_clone(void *item);
 
 #endif

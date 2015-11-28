@@ -13,7 +13,6 @@ TpContato* tpc_create(char *name, char *phone)
 
 void tpc_free(TpContato **record)
 {
-  tpc_generic_print((void *) (*record));
   free(*record);
 
   *record = NULL;
@@ -32,4 +31,21 @@ void tpc_generic_print(void *item)
   printf("%5s: %s\n", "Nome", record->nome);
   printf("%5s: %s\n", "Fone", record->fone);
   printf("--------------------------------\n");
+}
+
+void *tpc_generic_clone(void *item)
+{
+  TpContato *record = (TpContato *) item;
+
+  return (void *) tpc_create(record->nome, record->fone);
+}
+
+int tpc_generic_cmp(const void *a, const void *b)
+{
+  TpContato *record1, *record2;
+
+  record1 = (TpContato *) a;
+  record2 = (TpContato *) b;
+  
+  return strcmp(record1->nome, record2->nome);
 }
