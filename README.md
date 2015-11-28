@@ -22,3 +22,14 @@ In this work were implemented:
 
 Sort 'name' in TpContato struct by strcmp, not by the number that is
 appended to 'name';
+
+## Compilling
+
+The executables are on `/builds` directory. The main program is named
+`main`.
+
+```sh
+make       # compile the full program
+make run   # compile and run program
+make debug # compile and run program under valgrind environment
+```
